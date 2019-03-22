@@ -8,10 +8,9 @@ const mongoose = require('mongoose')
 const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/order');
 
-mongoose.connect('mongodb+srv://shama:' + process.env.MONGO_ATLAS_PW + '@node-shop-h5rho.mongodb.net/test?retryWrites=true',{
-    useMongoClient : true
-});
-
+// mongoose.connect('mongodb+srv://shama:' + process.env.MONGO_ATLAS_PW + '@node-shop-h5rho.mongodb.net/test?retryWrites=true',{
+//     useMongoClient : true
+// });
 
 app.use(morgan('dev')); //use it before routes
 app.use(bodyParser.urlencoded({extended:false}))
