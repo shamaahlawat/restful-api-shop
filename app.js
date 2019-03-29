@@ -10,10 +10,10 @@ app.use(bodyParser.json())
 const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/order');
 
-mongoose.connect('mongodb+srv://shama:' + process.env.MONGO_ATLAS_PW + '@node-shop-h5rho.mongodb.net/test?retryWrites=true',{
-    // useMongoClient : true
-    useNewUrlParser: true
-});
+// mongoose.connect('mongodb+srv://shama:' + process.env.MONGO_ATLAS_PW + '@node-shop-h5rho.mongodb.net/test?retryWrites=true',{
+//     // useMongoClient : true
+//     useNewUrlParser: true
+// });
 
 mongoose.connect('mongodb+srv://admin:' + process.env.MONGO_ATLAS_PW + '@node-shop-azzpn.mongodb.net/test?retryWrites=true',{
     // useMongoClient : true
@@ -67,4 +67,4 @@ var port = process.env.PORT || 4000
 app.listen(port,function(){
     console.log("App is running on port 4000")
 });
-//.exports = app;
+// module.exports = app;
