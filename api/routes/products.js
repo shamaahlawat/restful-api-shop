@@ -32,34 +32,34 @@ router.post('/',(req,res,next) => { //creating product
 router.get('/:productId',(req,res, next) => {  //Not workinggg
     // getting product with particular id
     const id = req.params.productId;
-    if(id === 'special'){       // Without using mongodb atlas database manually trying 
-        res.status(200).json({
-            message: 'you discoverd special id',
-            id:id
-        })}
-        else {
-            res.status(200).json({
-                message: 'you entered id',
-                id:id
-        })
-    }
+    // if(id === 'special'){       // Without using mongodb atlas database manually trying 
+    //     res.status(200).json({
+    //         message: 'you discoverd special id',
+    //         id:id
+    //     })}
+    //     else {
+    //         res.status(200).json({
+    //             message: 'you entered id',
+    //             id:id
+    //     })
+    // }
 
     //With using mongodb atlas database 
-    // Product.findById(id)
-    //     .exec()
-    //     .then(doc => {
-    //         console.log("From dtaabase",doc)
-    //         if(doc){
-    //             res.status(200).json(doc);
-    //         }
-    //       else{
-    //         res.status(200).json({message:'no valid entry found in db'})
-    //       }
-    //     })
-    //     .catch(err => {
-    //         console.log(err);
-    //         res.status(500).json({error:err})
-    //     })
+    Product.findById(id)
+        .exec()
+        .then(doc => {
+            console.log("From dtaabase",doc)
+            if(doc){
+                res.status(200).json(doc);
+            }
+          else{
+            res.status(200).json({message:'no valid entry found in db'})
+          }
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({error:err})
+        })
 })
 
 router.patch('/:productId',(req,res,next) => {
