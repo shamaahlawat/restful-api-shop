@@ -4,8 +4,23 @@ const Product = require('../models/product');
 const mongoose = require('mongoose')
 
 router.get('/',(req,res,next)=>{
-    res.status(200).json({
-        message: 'handling GET requests to /products'
+    //without using mongodb
+    // res.status(200).json({
+    //     message: 'handling GET requests to /products'
+    // })
+
+    //When taking data from db
+    Product.find()
+    .exec()
+    .then(docs => {
+        console.log(docs);
+        res.status(200).json(docs);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json({
+            error:err
+        })
     })
 })
 
